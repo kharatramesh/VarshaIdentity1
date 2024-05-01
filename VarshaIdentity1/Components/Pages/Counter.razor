@@ -1,0 +1,31 @@
+﻿@page "/counter"
+@using Microsoft.AspNetCore.Authorization
+@attribute [Authorize(Roles = "admin")]
+@rendermode InteractiveServer
+<PageTitle>Counter</PageTitle>
+
+<AuthorizeView>
+    <Authorized>
+        <h1>Counter</h1>
+        <div role="status" style="padding-bottom: 1em;">
+            Current count: <FluentBadge Appearance="Appearance.Neutral">@currentCount</FluentBadge>
+        </div>
+
+        <FluentButton Appearance="Appearance.Accent" @onclick="IncrementCount">Click me</FluentButton>
+    </Authorized>
+</AuthorizeView>
+@code {
+    private int currentCount = 0;
+
+    private void IncrementCount()
+    {
+        currentCount++;
+    }
+}
+@* using Microsoft.AspNetCore.Authorization;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 2 "C:\Users\enegvar\varsha\source\repos\VarshaIdentity1\VarshaIdentity1\Components\Pages\Counter.razor" *@
